@@ -1,0 +1,23 @@
+package com.fastbiding.app;
+
+import java.util.Scanner;
+
+public class Main {
+     // this is main class of application
+	// this is the entry point.
+	public static  Scanner sc = new Scanner(System.in);
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Welcome to Fast Biding");
+		
+		// 1. options  o
+		  
+		
+		
+        
+	}
+
+}

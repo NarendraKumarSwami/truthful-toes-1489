@@ -1,0 +1,14 @@
+package com.fastbiding.dao;
+
+import com.fastbiding.exception.VendorException;
+import com.fastbiding.model.Vendor;
+
+public interface VendorDao {
+     
+	
+	public String register(Vendor vendor)  throws VendorException;
+	
+	public Vendor login(String username, String password);
+	
+	
+}

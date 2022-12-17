@@ -1,0 +1,25 @@
+package com.fastbiding.utility;
+
+import java.sql.Connection;
+import java.util.ResourceBundle;
+
+public class DBUtil {
+     
+	
+	private static String drivername;
+	private static String url;
+	private static String username;
+	private static String password;
+	
+	static {
+		ResourseBundle rb =  ResourceBundle.getBundle("dbdetails");
+	}
+	
+	public static Connection provideConnection(String[] args) {
+		    Connection con = null;
+		    
+		       
+		    return con;
+		
+	}
+}

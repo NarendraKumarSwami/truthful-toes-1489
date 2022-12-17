@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.util.ResourceBundle"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="com.fastbiding.exception.proposalAdminException"/>
+    <fullyQualifiedTypeName name="com.fastbiding.exception.SiteAdminException"/>
+    <fullyQualifiedTypeName name="com.fastbiding.exception.VendorException"/>
+    <fullyQualifiedTypeName name="com.fastbiding.dao.ProposalAdminDao"/>
+    <fullyQualifiedTypeName name="com.fastbiding.dao.SiteAdminDao"/>
+    <fullyQualifiedTypeName name="com.fastbiding.utility.DBUtil"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="javax.security.auth.PrivateCredentialPermission"/>
+    <fullyQualifiedTypeName name="com.fastbiding.exception.ProposalAdminException"/>
+    <fullyQualifiedTypeName name="com.fastbiding.model.ProposalAdmin"/>
+</qualifiedTypeNameHistroy>

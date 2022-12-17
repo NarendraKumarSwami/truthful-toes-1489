@@ -1,0 +1,29 @@
+package com.fastbiding.dao;
+
+import com.fastbiding.exception.ProposalAdminException;
+import com.fastbiding.model.ProposalAdmin;
+import com.fastbiding.utility.DBUtil;
+
+public class ProposalAdminDaoImpl implements ProposalAdminDao{
+
+	@Override
+	public String register(ProposalAdmin admin) throws ProposalAdminException {
+		// TODO Auto-generated method stub
+		String message  = "Not registerd ...";
+		
+		try (DBUtil.provideConnection()){
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return message;
+	}
+
+	@Override
+	public ProposalAdmin login(String username, String password) throws ProposalAdminException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
