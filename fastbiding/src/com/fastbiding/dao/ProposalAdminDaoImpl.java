@@ -2,7 +2,6 @@ package com.fastbiding.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.fastbiding.exception.ProposalAdminException;
@@ -44,19 +43,9 @@ public class ProposalAdminDaoImpl implements ProposalAdminDao{
 		ProposalAdmin pAdmin = null;
 		
 		try (Connection con = DBUtil.provideConnection()){
-			     PreparedStatement ps =     con.prepareStatement("select * from proposalAdmin where email = ? and password = ? ");
-			     ps.setString(1, username);
-			     ps.setString(2, password);
-			     ResultSet rs = ps.executeQuery();
-			     if(rs.next()) {
-			    	  pAdmin = new ProposalAdmin(rs.getInt("pid"), rs.getString("client"), rs.getString("email"), rs.getString("location"), rs.getString("password"), rs.getString("country"), rs.getString("state"), rs.getString("companyRegistrationNo"));
-			    }else {
-			    	throw new ProposalAdminException("Wrong Credentails !");
-			    }
-		} catch (SQLException e) {
+			        con.prepareStatement("select * from proposalAdmin ")
+		} catch (Exception e) {
 			// TODO: handle exception
-			e.printStackTrace();
-			throw new ProposalAdminException(e.getMessage());
 		}
 		
 		return pAdmin;

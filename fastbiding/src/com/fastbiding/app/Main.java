@@ -2,8 +2,6 @@ package com.fastbiding.app;
 
 import java.util.Scanner;
 
-import com.fastbiding.usecase.ProposalAdminUseCase;
-
 public class Main {
      // this is main class of application
 	// this is the entry point.
@@ -59,35 +57,7 @@ public class Main {
 	}
 
 	public static void proposalAdmin() {
-		// create a instance of ProposalAdminUseCase class
-		   ProposalAdminUseCase pAdminUseCase = new ProposalAdminUseCase();
-		   
-		   
-		  
-		   System.out.println("Enter Option as 1 & 2 ");
-		   
-		   
-		   System.out.println("1 for Registeration ");
-		   System.out.println("2 for Login");
-		   
-		   
-		   int key = sc.nextInt();
-		   
-		   
-		   switch (key) {
-		case 1: {
-			
-			pAdminUseCase.register();
-			break;
-		}
-     	case 2: {
-			
-			pAdminUseCase.login();
-			break;
-		}
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + key);
-		}
+		   // call usecase of proposal Admin
 	}
 	
 	public static void vendor() {
