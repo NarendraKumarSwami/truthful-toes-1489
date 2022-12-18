@@ -1,0 +1,10 @@
+package com.fastbiding.usecase;
+
+public class SiteAdminUseCase {
+         // All Usecasse for SiteAdmin defined using methods
+	     
+	public SiteAdminDao dao = new SiteAdminDaoImpl(); 
+	public void login() {
+		   
+	}
+}

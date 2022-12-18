@@ -1,0 +1,31 @@
+package com.fastbiding.usecase;
+
+import com.fastbiding.app.Main;
+import com.fastbiding.model.ProposalAdmin;
+
+public class proposalAdminUseCase {
+         // all the Usecases for the proposal admin are listed as individiual method
+	  
+	  public void register() {
+		     System.out.println("Enter the details for registration");
+		      Main.sc.nextLine();
+		      System.out.println("Enter company name :");
+		      String client = Main.sc.nextLine();
+		      System.out.println("Enter Email");
+		      String email = Main.sc.nextLine();
+		      System.out.println("Enter Country ");
+		      String country = Main.sc.nextLine();
+		      System.out.println("Enter State");
+		      String state = Main.sc.nextLine();
+		      System.out.println("Enter location");
+		      String location = Main.sc.nextLine();
+		      System.out.println("Enter Company Registration No");
+		      String comregistrationNo = Main.sc.nextLine();
+		      System.out.println("Enter Password");
+		      String password = Main.sc.next();
+		      
+		      ProposalAdmin pAdmin = new ProposalAdmin();
+		      pAdmin.setClient(client)
+		      
+	  }
+}

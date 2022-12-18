@@ -1,0 +1,10 @@
+package com.fastbiding.dao;
+
+import com.fastbiding.exception.ProposalAdminException;
+import com.fastbiding.model.ProposalAdmin;
+
+public interface ProposalAdminDao {
+       public String  register(ProposalAdmin admin)  throws ProposalAdminException;
+       
+       public ProposalAdmin login(String username, String password) throws ProposalAdminException;
+}

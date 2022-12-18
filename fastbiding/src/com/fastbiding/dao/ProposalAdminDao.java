@@ -7,4 +7,6 @@ public interface ProposalAdminDao {
        public String  register(ProposalAdmin admin)  throws ProposalAdminException;
        
        public ProposalAdmin login(String username, String password) throws ProposalAdminException;
+       
+       
 }
