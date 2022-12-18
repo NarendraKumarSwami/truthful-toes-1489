@@ -1,0 +1,12 @@
+package com.fastbiding.usecase;
+
+import com.fastbiding.app.Main;
+
+public class proposalAdminUseCase {
+         // all the Usecases for the proposal admin are listed as individiual method
+	  
+	  public void register() {
+		     System.out.println("Enter the details for registration");
+		      Main.sc.next();
+	  }
+}
