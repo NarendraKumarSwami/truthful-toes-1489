@@ -1,0 +1,15 @@
+package com.fastbiding.model;
+
+public class SiteAdmin {
+      
+	
+	private int sid;
+	private String sname;
+	private String email;
+	private String password;
+	
+	public SiteAdmin() {
+		// TODO Auto-generated constructor stub
+	}
+	      
+}

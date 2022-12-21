@@ -1,0 +1,209 @@
+package com.fastbiding.usecase;
+
+import com.fastbiding.app.Main;
+import com.fastbiding.dao.TenderAdminDao;
+import com.fastbiding.dao.TenderAdminDaoImpl;
+import com.fastbiding.exception.TenderAdminException;
+import com.fastbiding.model.TenderAdmin;
+
+public class TenderAdminUseCase {
+       // all the Usecases for the Tender admin are listed as individiual method
+	  public TenderAdminDao dao = new TenderAdminDaoImpl();
+	  
+	  private TenderAdmin ta = null;
+	  
+	  
+	  public void register() {
+		  
+		     System.out.println("Enter the details for registration");
+		     Main.sc.nextLine();
+		      
+		      System.out.println("Enter company name :");
+		      String client = Main.sc.nextLine();
+		      
+		      System.out.println("Enter Email");
+		      String email = Main.sc.nextLine();
+		      
+		      System.out.println("Enter Country ");
+		      String country = Main.sc.nextLine();
+		      
+		      System.out.println("Enter State");
+		      String state = Main.sc.nextLine();
+		      
+		      System.out.println("Enter location");
+		      String location = Main.sc.nextLine();
+		      
+		      System.out.println("Enter Company Registration No");
+		      String comregistrationNo = Main.sc.nextLine();
+		      
+		      System.out.println("Enter Password");
+		      String password = Main.sc.next();
+		      
+		      
+		     TenderAdmin pAdmin = new TenderAdmin();
+		      
+		      pAdmin.setClient(client);
+		      pAdmin.setEmail(email);
+		      pAdmin.setCountry(country);
+		      pAdmin.setState(state);
+		      pAdmin.setLocation(location);
+		      pAdmin.setCompanyRegistrationNo(comregistrationNo);;
+		      pAdmin.setPassword(password);
+		      
+		      try {
+			    String result =	dao.register(pAdmin);
+			    System.out.println(result);
+			} catch (TenderAdminException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		      
+		      
+	  }
+	  
+	  
+	  public void options() {
+		  
+		  System.out.println("You can do following Activity");
+	    	System.out.println("1. Add a Project");
+	    	System.out.println("2. See all listed Projects");
+	    	System.out.println("3. Create a Tender for a Project");
+	    	System.out.println("4. Delete a Tender");
+	    	System.out.println("5. See All application for a tender");
+	    	System.out.println("6. Select a application for a tender");
+	    	System.out.println("7. Give feedback to a vendor for project");
+	    	System.out.println("8. Move to previous operations\n");
+	    	
+	    	System.out.println("Enter a key from 1 to 7");
+	    	
+	        int key =	Main.sc.nextInt();
+	        
+	        switch (key) {
+			case 1: {
+				
+				this.addProject();
+				break;
+			}
+	        case 2: {
+				
+				this.projectList();
+				break;
+			}
+	        case 3: {
+				
+				this.createTender();
+				break;
+			}
+	       case 4: {
+				
+				this.deleteTender();
+				break;
+			} 
+	       case 5:{
+	    	   
+	    	   this.allApplicationOfTender();
+	    	   break;
+	       }
+	       case 6:{
+	    	   
+	    	   this.selectApplicationForTender();
+	    	   break;
+	       }
+	       case 7:{
+	    	   
+	    	   this.giveFeedback();
+	    	   break;
+	       }
+			default:
+				System.out.println("\nInput is incorrect \n");
+				this.options();
+			}
+		  
+	  }
+	  
+	  public void login() {
+		     System.out.println("Enter Email Id :");
+		     String email = Main.sc.next();
+		     
+		     System.out.println("Enter Password ");
+		     String password = Main.sc.next();
+		     
+		     
+		     
+		     
+		     
+		     try {
+			     ta =	dao.login(email, password);
+			    if(ta != null) {
+			    	System.out.println("Logined Seccussfully !");
+			    }else {
+			    	System.out.println("Opps! Wrong Credentials");
+			    }
+			} catch (TenderAdminException e) {
+				// TODO Auto-generated catch block
+				  System.out.println(e.getMessage());
+			}finally {
+				this.move();
+			}
+		     
+		     
+	  }
+
+ 
+	  public void move() {
+		  System.out.println("\nDo you want to perform more operations? (y/n)");
+			
+			String key = Main.sc.next();
+			switch (key) {
+			case "y": {
+				
+				this.options();
+				break;
+			}
+	       case "n": {
+				
+
+	            System.out.println("Hope! you will come back soon. Thank you");
+	            Main.sc.close();
+				break;
+			}
+			default:
+				System.out.println("Incorrect Input. Please Again");
+				this.move();
+			}
+	  }
+	  
+	  
+	  
+       public void addProject() {
+    	   
+       }
+       
+       
+       public void projectList() {
+    	   
+       }
+       
+       
+       public void createTender() {
+    	   
+       }
+
+       public void deleteTender() {
+    	   
+       }
+       
+       public void allApplicationOfTender() {
+    	   
+       }
+       
+       public void selectApplicationForTender() {
+    	   
+       }
+       
+       public void giveFeedback() {
+
+       }
+
+
+}

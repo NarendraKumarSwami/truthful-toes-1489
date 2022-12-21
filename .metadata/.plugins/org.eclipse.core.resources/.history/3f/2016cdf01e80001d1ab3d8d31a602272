@@ -1,0 +1,92 @@
+package com.fastbiding.usecase;
+
+import com.fastbiding.app.Main;
+import com.fastbiding.dao.VendorDao;
+import com.fastbiding.dao.VendorDaoImpl;
+import com.fastbiding.exception.VendorException;
+import com.fastbiding.model.Vendor;
+
+public class VendorUseCase {
+        /// all usecase of vendor
+	
+	    VendorDao dao = new VendorDaoImpl();
+	    
+	    
+	    public void register() {
+	    	     System.out.println("Enter  Details to Register as a Vendor");
+	    	     
+	    	     System.out.println("Enter the Name :");
+	    	     String vname = Main.sc.next();
+	    	     
+	    	     System.out.println("Enter email :");
+	    	     String email = Main.sc.next();
+	    	     
+	    	     Main.sc.nextLine();
+	    	     System.out.println("Enter Country :");
+	    	     String country = Main.sc.nextLine();
+	    	     
+	    	     
+	    	     System.out.println("Enter State :");
+	    	     String state = Main.sc.nextLine();
+	    	     
+	    	     System.out.println("Enter address :");
+	    	     String address = Main.sc.nextLine();
+	    	     
+	    	     System.out.println("Enter Company registeration number :");
+	    	     String comRegistrationNum = Main.sc.nextLine();
+	    	     
+	    	     System.out.println("Enter GST Numnber");
+	    	     String gstNum = Main.sc.next();
+	    	     
+	    	     System.out.println("Enter Password :");
+	    	     String password = Main.sc.next();
+	    	     
+	    	     Vendor vn = new Vendor();
+	    	     
+	    	     vn.setVname(vname);
+	    	     vn.setEmail(email);
+	    	     vn.setCountry(country);
+	    	     vn.setState(state);
+                 vn.setAddress(address);
+                 vn.setCompanyRegistrationNum(comRegistrationNum);
+                 vn.setGstNum(gstNum);
+                 vn.setPassword(password);
+                 
+                 
+                 
+                 
+                 try {
+					  String message = dao.register(vn);
+					  System.out.println(message);
+				} catch (VendorException e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage());
+				}finally {
+					Main.vendor();
+				}
+                 
+                 
+	    
+	    
+	    
+	    }
+	    
+	    
+	    public void login() {
+	    	  System.out.println("Enter the Credentails :");
+	    	  
+	    	  System.out.println("Enter email :");
+	    	  String email = Main.sc.next();
+	    	  
+	    	  System.out.println("Enter the password");
+	    	  String password = Main.sc.next();
+	    	  
+	    	  try {
+				Vendor vendor = dao.login(email, password);
+				System.out.println(vendor);
+			} catch (VendorException e) {
+				// TODO Auto-generated catch block
+				System.out.println(e.getMessage());
+			}
+	    }
+}

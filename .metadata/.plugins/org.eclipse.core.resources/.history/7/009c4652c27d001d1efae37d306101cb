@@ -1,0 +1,9 @@
+package com.fastbiding.dao;
+
+import com.fastbiding.exception.SiteAdminException;
+
+public interface SiteAdminDao {
+       
+	  public SiteAdmin login(String username, String password)  throws SiteAdminException;
+	
+}

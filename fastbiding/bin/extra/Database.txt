@@ -1,0 +1,112 @@
+create database fastBidingdb;
+
+
+create table proposalAdmin
+(
+pid int primary key auto_increment,
+client varchar(20),
+email      varchar(20),
+location   varchar(20),
+password   varchar(20),
+);
+alter table proposalAdmin add column country varchar(20), state varchar(20),
+ companyRegistrationNo varchar(20); 
+
+
+create table vendors 
+(
+vid int primary key,
+vname  varchar(20),
+email  varchar(20),
+country varchar(20),
+state varchar(20),
+address varchar(20),
+password varchar(20)
+);
+
+alter table vendor add column companyRegistrationNum varchar(20), gstNum varchar(20);
+
+
+create table siteAdmin
+(
+sid int primary key auto_increment,
+sname varchar(20),
+email varchar(20),
+password varchar(20)
+);
+
+create table projects
+(
+pjId int primary key auto_increment,
+pTitle varchar(20),
+pSummary varchar(200),
+pDetailsDocLink varchar(20),
+type varchar(20) 
+pAdmin int,
+foreign key (pAdmin) references TenderAdmin(pid) 
+);
+
+
+create table tenders 
+(
+tId int primary key auto_increment,
+pjId int unique,
+prerequisite varchar(100),
+startDate date,
+endDate date,
+foreign key (pjID) references projects(pjId);
+);
+
+create table applytoTender
+(
+apId int primary key auto_increment,
+vid int,
+tId int,
+detailsDoc varchar(200),
+aStatus varchar(200),
+foreign key (vid) references vendors(vid),
+foreign key (tId) references Tenders(tId),
+Constraint uni  UNIQUE(vid, tid)
+);
+
+create table selectedApplication 
+(
+slId int primary key auto_increment,
+apId int,
+bidingDate date,
+city varchar(20),
+location varchar(20),
+foregin key (apId) references applytoProposal(apId)
+);
+
+
+create table projectcompletion
+(
+ rtId int primary key auto_increment,
+ vid int,
+ pjid int,
+ rating int,
+ feedback varchar(200)
+ foreign key vid references vendors(vid)
+ foreign key pjid references 
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             

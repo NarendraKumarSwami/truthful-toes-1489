@@ -1,0 +1,60 @@
+package com.fastbiding.usecase;
+
+import com.fastbiding.app.Main;
+import com.fastbiding.dao.VendorDao;
+import com.fastbiding.dao.VendorDaoImpl;
+import com.fastbiding.exception.VendorException;
+import com.fastbiding.model.Vendor;
+
+public class VendorUseCase {
+        /// all usecase of vendor
+	
+	    VendorDao dao = new VendorDaoImpl();
+	    
+	    
+	    public void register() {
+	    	     System.out.println("Enter  Details to Register as a Vendor");
+	    	     
+	    	     System.out.println("Enter the Name :");
+	    	     String vname = Main.sc.next();
+	    	     
+	    	     System.out.println("Enter email :");
+	    	     String email = Main.sc.next();
+	    	     
+	    	     Main.sc.nextLine();
+	    	     System.out.println("Enter Country :");
+	    	     String country = Main.sc.nextLine();
+	    	     
+	    	     
+	    	     System.out.println("Enter State :");
+	    	     String state = Main.sc.nextLine();
+	    	     
+	    	     System.out.println("Enter address :");
+	    	     String address = Main.sc.nextLine();
+	    	     
+	    	     System.out.println("Enter Company registeration number :");
+	    	     String comRegistrationNum = Main.sc.nextLine();
+	    	     
+	    	     System.out.println("Enter GST Numnber");
+	    	     String gstNum = Main.sc.next();
+	    }
+	    
+	    
+	    public void login() {
+	    	  System.out.println("Enter the Credentails :");
+	    	  
+	    	  System.out.println("Enter email :");
+	    	  String email = Main.sc.next();
+	    	  
+	    	  System.out.println("Enter the password");
+	    	  String password = Main.sc.next();
+	    	  
+	    	  try {
+				Vendor vendor = dao.login(email, password);
+				System.out.println(vendor);
+			} catch (VendorException e) {
+				// TODO Auto-generated catch block
+				System.out.println(e.getMessage());
+			}
+	    }
+}

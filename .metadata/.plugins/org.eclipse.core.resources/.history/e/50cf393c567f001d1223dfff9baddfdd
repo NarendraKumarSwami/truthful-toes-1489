@@ -1,0 +1,36 @@
+package com.fastbiding.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import com.fastbiding.exception.SiteAdminException;
+import com.fastbiding.model.SiteAdmin;
+import com.fastbiding.utility.DBUtil;
+
+public class SiteAdminDaoImpl implements SiteAdminDao{
+
+	@Override
+	public SiteAdmin login(String username, String password) throws SiteAdminException {
+		// TODO Auto-generated method stub
+		SiteAdmin st = null;
+		
+		try (Connection con = DBUtil.provideConnection()){
+			    PreparedStatement ps =  con.prepareStatement("slect * from siteAdmin where email = ? and password = ?")
+		        ps.setString(1, username);
+			    ps.setString(2, password);
+			    ResultSet rs = ps.executeQuery();
+			    if(rs.next()) {
+			    	
+			    }
+		
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			throw new SiteAdminException(e.getMessage());
+		}
+		
+		return st;
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.fastbiding.exception;
+
+public class proposalAdminException {
+
+}

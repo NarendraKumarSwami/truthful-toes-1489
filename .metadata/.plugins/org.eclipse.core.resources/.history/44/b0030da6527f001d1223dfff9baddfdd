@@ -1,0 +1,10 @@
+package com.fastbiding.model;
+
+public class CompletedProjects {
+      
+	
+	private int rtid;
+	private int vid;
+	private int pjid;
+	private int comment;
+}

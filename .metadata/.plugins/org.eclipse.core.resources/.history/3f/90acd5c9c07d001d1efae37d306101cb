@@ -1,0 +1,6 @@
+package com.fastbiding.dao;
+
+public interface SiteAdminDao {
+       
+	
+}

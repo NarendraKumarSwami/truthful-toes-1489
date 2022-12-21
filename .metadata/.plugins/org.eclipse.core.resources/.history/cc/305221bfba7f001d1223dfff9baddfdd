@@ -1,0 +1,96 @@
+package com.fastbiding.usecase;
+
+import com.fastbiding.app.Main;
+import com.fastbiding.dao.TenderAdminDao;
+import com.fastbiding.dao.TenderAdminDaoImpl;
+import com.fastbiding.exception.TenderAdminException;
+import com.fastbiding.model.TenderAdmin;
+
+public class TenderAdminUseCase {
+        // all the Usecases for the Tender admin are listed as individiual method
+	  public TenderAdminDao dao = new TenderAdminDaoImpl();
+	  
+	  public void register() {
+		  
+		     System.out.println("Enter the details for registration");
+		     Main.sc.nextLine();
+		      
+		      System.out.println("Enter company name :");
+		      String client = Main.sc.nextLine();
+		      
+		      System.out.println("Enter Email");
+		      String email = Main.sc.nextLine();
+		      
+		      System.out.println("Enter Country ");
+		      String country = Main.sc.nextLine();
+		      
+		      System.out.println("Enter State");
+		      String state = Main.sc.nextLine();
+		      
+		      System.out.println("Enter location");
+		      String location = Main.sc.nextLine();
+		      
+		      System.out.println("Enter Company Registration No");
+		      String comregistrationNo = Main.sc.nextLine();
+		      
+		      System.out.println("Enter Password");
+		      String password = Main.sc.next();
+		      
+		      
+		     TenderAdmin pAdmin = new TenderAdmin();
+		      
+		      pAdmin.setClient(client);
+		      pAdmin.setEmail(email);
+		      pAdmin.setCountry(country);
+		      pAdmin.setState(state);
+		      pAdmin.setLocation(location);
+		      pAdmin.setCompanyRegistrationNo(comregistrationNo);;
+		      pAdmin.setPassword(password);
+		      
+		      try {
+			    String result =	dao.register(pAdmin);
+			    System.out.println(result);
+			} catch (TenderAdminException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		      
+		      
+	  }
+	  
+	  
+	  
+	  public void login() {
+		     System.out.println("Enter Credentails for Login As Project/Proposal Admin");
+		     Main.sc.nextLine();
+		     
+		     System.out.println("Enter Email Id :");
+		     String email = Main.sc.nextLine();
+		     
+		     System.out.println("Enter Password ");
+		     String password = Main.sc.next();
+		     
+		     
+		     
+		     
+		     
+		     try {
+			    TenderAdmin pAdmin =	dao.login(email, password);
+			    System.out.println(pAdmin);
+			} catch (TenderAdminException e) {
+				// TODO Auto-generated catch block
+				  System.out.println(e.getMessage());
+			}
+		     
+		     
+	  }
+
+
+       public void addProject() {
+    	   
+       }
+
+
+
+
+}

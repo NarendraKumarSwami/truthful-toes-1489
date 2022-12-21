@@ -1,0 +1,14 @@
+package com.fastbiding.exception;
+
+public class SiteAdminException {
+     
+	public SiteAdminException() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	public SiteAdminException(String message) {
+		// TODO Auto-generated constructor stub
+		super()messag
+	}
+}

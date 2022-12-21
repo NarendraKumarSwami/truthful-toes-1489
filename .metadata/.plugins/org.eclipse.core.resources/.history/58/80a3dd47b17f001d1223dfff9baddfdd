@@ -1,0 +1,89 @@
+package com.fastbiding.usecase;
+
+import java.util.List;
+
+import com.fastbiding.app.Main;
+import com.fastbiding.dao.SiteAdminDao;
+import com.fastbiding.dao.SiteAdminDaoImpl;
+import com.fastbiding.exception.SiteAdminException;
+import com.fastbiding.model.SiteAdmin;
+import com.fastbiding.model.TenderAdmin;
+
+public class SiteAdminUseCase {
+         // All Usecasse for SiteAdmin defined using methods
+	     
+	public SiteAdminDao dao = new SiteAdminDaoImpl(); 
+	// Set Credentials 
+	private SiteAdmin st = null;
+	
+	public void login() {
+		 // login
+	    System.out.println("Please Enter Credientails for Login");
+	    System.out.println("Enter Email Id :");
+	    String email = Main.sc.next();
+	    System.out.println("Enter the password :");
+	    String password = Main.sc.next();
+	    
+	    try {
+		    st = dao.login(email, password);
+		    if(st != null) {
+		    	System.out.println("\nYou Logined Seccussfuly!\n");
+		    	this.options();
+		    }
+		} catch (SiteAdminException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e);
+			
+		}
+	}
+
+    public void options() {
+    	     
+    	System.out.println("You can do following Activity");
+    	System.out.println("1. See the list of Tender Admins");
+    	System.out.println("2. See the list of Vendors");
+    	System.out.println("3. See the list of Projects");
+    	System.out.println("4. See the list of Tenders");
+    	System.out.println("5. Remove a Tender Admin");
+    	System.out.println("6. Remove a Vendor Admin\n");
+    	System.out.println("7. Move to previous options");
+    	
+    	System.out.println("Enter a key from 1 to 7");
+    	
+        int key =	Main.sc.nextInt();
+        
+        switch (key) {
+		case 1: {
+			
+			this.tenderAdminList();
+			break;
+		}
+        case 2: {
+			
+			this.vendorList();
+			break;
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + key);
+		}
+        
+    }
+    
+    public void tenderAdminList() {
+    	
+    	try {
+		    List<TenderAdmin>  list =dao.getAllTenderAdmin();
+		    if(!list.isEmpty()) {
+		    	System.out.println("\nThe list of Tender Admin is follwoing :");
+		    	list.forEach(t-> System.out.println(t));
+		    }else {
+		    	System.out.println("Oops! there is no Tender Admin registred yet");
+		    }
+		} catch (SiteAdminException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    }
+
+}

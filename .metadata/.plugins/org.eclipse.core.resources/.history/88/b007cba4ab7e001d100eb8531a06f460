@@ -1,0 +1,31 @@
+package com.fastbiding.usecase;
+
+import com.fastbiding.app.Main;
+import com.fastbiding.dao.VendorDao;
+import com.fastbiding.dao.VendorDaoImpl;
+import com.fastbiding.exception.VendorException;
+import com.fastbiding.model.Vendor;
+
+public class VendorUseCase {
+        /// all usecase of vendor
+	
+	    VendorDao dao = new VendorDaoImpl();
+	    
+	    public void login() {
+	    	  System.out.println("Enter the Credentails :");
+	    	  
+	    	  System.out.println("Enter email :");
+	    	  String email = Main.sc.next();
+	    	  
+	    	  System.out.println("Enter the password");
+	    	  String password = Main.sc.next();
+	    	  
+	    	  try {
+				Vendor vendor = dao.login(email, password);
+			} catch (VendorException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				throw new VendorException();
+			}
+	    }
+}

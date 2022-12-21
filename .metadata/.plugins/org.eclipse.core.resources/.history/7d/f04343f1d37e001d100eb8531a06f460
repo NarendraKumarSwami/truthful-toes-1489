@@ -1,0 +1,32 @@
+package com.fastbiding.dao;
+
+import java.util.List;
+
+import com.fastbiding.exception.TenderAdminException;
+import com.fastbiding.model.Application;
+import com.fastbiding.model.Project;
+import com.fastbiding.model.ProposalAdmin;
+
+public interface TenderAdminDao {
+       public String  register(ProposalAdmin admin)  throws TenderAdminException;
+       
+       public ProposalAdmin login(String username, String password) throws TenderAdminException;
+       
+       
+       public String addProject(Project pr) throws TenderAdminException;
+       
+       
+       public List<Project> getAllProject() throws TenderAdminException;
+       
+       public String createProposalofAproject(int projectId) throws TenderAdminException;
+       
+       public String deleteProposal(int proposalId) throws TenderAdminException;
+       
+       
+       public List<Application>  getAllAppOfProposal()  throws TenderAdminException;
+       
+       public  String   selectAppforProposal(int appId) throws TenderAdminException;
+       
+       public  String  givefeeback(int vendorId, int projectId) throws TenderAdminException;
+       
+}

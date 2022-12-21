@@ -1,0 +1,13 @@
+package com.fastbiding.exception;
+
+public class proposalAdminException extends Exception{
+      
+	public proposalAdminException() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public proposalAdminException(String message) {
+		// TODO Auto-generated constructor stub
+		super(message);
+	}
+}

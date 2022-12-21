@@ -1,0 +1,132 @@
+package com.fastbiding.dao;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fastbiding.exception.VendorException;
+import com.fastbiding.model.Profile;
+import com.fastbiding.model.Tender;
+import com.fastbiding.model.Vendor;
+import com.fastbiding.utility.DBUtil;
+
+public class VendorDaoImpl implements VendorDao{
+
+	@Override
+	public String register(Vendor vendor) throws VendorException {
+		// TODO Auto-generated method stub
+		String message = "Not Registered Yet";
+		
+		try (Connection con = DBUtil.provideConnection()){
+			   PreparedStatement ps =  con.prepareStatement("insert into vendors(vname, email, country, state, address, password) values(?,?,?,?,?,?)");
+			   ps.setString(1, vendor.getVname());
+			   ps.setString(1, vendor.getEmail());
+			   ps.setString(1, vendor.getCountry());
+			   ps.setString(1, vendor.getState());
+			   ps.setString(1, vendor.getAddress());
+			   ps.setString(1, vendor.getPassword());
+			   
+			    int x = ps.executeUpdate();
+			    if(x>0) {
+			    	message = "Congrutulations! You registered as Vendor";
+			    }
+			   
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			throw new VendorException(e.getMessage());
+		}
+		
+		return message;
+	}
+
+	@Override
+	public Vendor login(String username, String password) {
+		// TODO Auto-generated method stub
+		Vendor vendor = null;
+		
+		try (Connection con = DBUtil.provideConnection()){
+			   PreparedStatement ps =    con.prepareStatement("select * from vendors where email = ? and password = ?");
+			    ps.setString(1, username);
+			    ps.setString(2, password);
+			  ResultSet rs =  ps.executeQuery();
+			  if(rs.next()) {
+				  vendor = new Vendor(rs.getInt("vid"), rs.getString("vname"), rs.getString("email"), rs.getString("country"), rs.getString("state"), rs.getString("address"), rs.getString("companyRegistrationNum"), rs.getString("gstNum"), rs.getString("password"));
+			  }
+			      
+		} catch (SQLException e) {
+			// TODO: handle exception
+		}
+		
+		return vendor;
+	}
+
+	@Override
+	public List<Tender> getAllTender() throws VendorException {
+		// TODO Auto-generated method stub
+		List<Tender> list = new ArrayList<>();
+		
+		try (Connection con = DBUtil.provideConnection()){
+			PreparedStatement ps =con.prepareStatement("select * from tenders where endDate >= ?");
+			   ps.setDate(1, Date.valueOf(LocalDate.now())); 
+			  ResultSet rs =   ps.executeQuery();
+			  while(rs.next()) {
+				  list.add(new Tender(rs.getInt("tid"), rs.getInt("pjId"), rs.getString("prerequisite"), rs.getDate("startDate"), rs.getDate("endDate")));;
+			  }
+		} catch (SQLException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			throw new VendorException();
+		}
+		
+		return list;
+	}
+
+	@Override
+	public String getTenderDetails(int tenderId) throws VendorException {
+		// TODO Auto-generated method stub
+		
+		return null;
+	}
+
+	@Override
+	public String applyforTender(int tenderId) throws VendorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Tender> getAllOffer(int vendorId) throws VendorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getB2Bdetails(int tenderId) throws VendorException {
+		// TODO Auto-generated method stub
+		String message = "There is not details";
+		
+		try (Connection con = DBUtil.provideConnection()){
+			  PreparedStatement ps =   con.prepareStatement("select t.tid, t.starDate, t.endDate, t.prerequisite, p.pTitle, p.pSummary, p.DetailsDocLink, "
+			     		+ "p.type, p.pAdmin   from projects p INNER JOIN tenders t ON p.pjid == t.tId And t.tID = ?");
+			  ps.setInt(1, tenderId);
+			  ResultSet rs = ps.executeQuery();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return message;
+	}
+
+	@Override
+	public Profile getProfile(int vid) throws VendorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,124 @@
+package com.fastbiding.app;
+
+import java.util.Scanner;
+
+import com.fastbiding.usecase.TenderAdminUseCase;
+import com.fastbiding.usecase.VendorUseCase;
+
+public class Main {
+     // this is main class of application
+	// this is the entry point.
+	public static  Scanner sc = new Scanner(System.in);
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Welcome to Fast Biding");
+		
+		// option - SiteAdmin , ProposalAdmin, Vendor
+		 System.out.println("Enter Number :");
+         System.out.println("1 for SiteAdmin");	
+         System.out.println("2 for Porject or Proposal Administatrator ");	
+         System.out.println("3 for Vendor");	
+         
+         int num = sc.nextInt();
+         
+         switch (num) {
+		case 1: {
+			
+		    	siteAdmin();
+		    	break;
+		}
+		case 2: {
+			
+	    	proposalAdmin();
+	    	break;
+	    }
+      case 3: {
+			
+	    	vendor();
+	    	break;
+	    }
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + num);
+		}
+        
+	}
+	
+	
+	public static void siteAdmin() {
+		   
+		
+		    // options for all process that a website Administrator can do;
+		  
+	}
+
+	public static void TendorAdmin() {
+		// create a instance of ProposalAdminUseCase class
+		   TenderAdminUseCase pAdminUseCase = new TenderAdminUseCase();
+		   
+		   
+		  
+		   System.out.println("Enter Option as 1 & 2 ");
+		   
+		   
+		   System.out.println("1 for Registeration ");
+		   System.out.println("2 for Login");
+		   
+		   
+		   int key = sc.nextInt();
+		   
+		   
+		   switch (key) {
+		case 1: {
+			
+			pAdminUseCase.register();
+			break;
+		}
+     	case 2: {
+			
+			pAdminUseCase.login();
+			break;
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + key);
+		}
+	}
+	
+	public static void vendor() {
+		// create a instance of ProposalAdminUseCase class
+		  VendorUseCase vendor = new VendorUseCase();
+		   
+		   
+		  
+		   System.out.println("Enter Option as 1 & 2 ");
+		   
+		   
+		   System.out.println("1 for Registeration ");
+		   System.out.println("2 for Login");
+		   
+		   
+		   int key = sc.nextInt();
+		   
+		   
+		   switch (key) {
+		case 1: {
+			
+		     vendor.register();
+			break;
+		}
+  	case 2: {
+			
+			vendor.login();
+			break;
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + key);
+		}
+	}
+	
+	
+	
+	
+}

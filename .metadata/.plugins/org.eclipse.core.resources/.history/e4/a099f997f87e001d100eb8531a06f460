@@ -1,0 +1,11 @@
+package com.fastbiding.model;
+
+public class Feedback {
+     
+	
+	private int rtId;
+	private int vendorId;
+	private int projectId;
+	private int rating;
+	private String feedback;
+}

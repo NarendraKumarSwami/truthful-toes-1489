@@ -1,0 +1,71 @@
+package com.fastbiding.model;
+
+public class CompletedProject {
+      
+	
+	private int rtid;
+	private int vid;
+	private int pjid;
+	private int rating;
+	private int comment;
+	
+	public CompletedProject() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public CompletedProject(int rtid, int vid, int pjid, int rating, int comment) {
+		super();
+		this.rtid = rtid;
+		this.vid = vid;
+		this.pjid = pjid;
+		this.rating = rating;
+		this.comment = comment;
+	}
+
+	public int getRtid() {
+		return rtid;
+	}
+
+	public void setRtid(int rtid) {
+		this.rtid = rtid;
+	}
+
+	public int getVid() {
+		return vid;
+	}
+
+	public void setVid(int vid) {
+		this.vid = vid;
+	}
+
+	public int getPjid() {
+		return pjid;
+	}
+
+	public void setPjid(int pjid) {
+		this.pjid = pjid;
+	}
+
+	public int getComment() {
+		return comment;
+	}
+
+	public void setComment(int comment) {
+		this.comment = comment;
+	}
+
+	@Override
+	public String toString() {
+		return "CompletedProjects [rtid=" + rtid + ", vid=" + vid + ", pjid=" + pjid + ", rating="+rating+". comment=" + comment + "]";
+	}
+
+	public int getRating() {
+		return rating;
+	}
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+	
+	
+}
