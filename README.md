@@ -14,4 +14,4 @@ Mysql is connected using JDBC technology.
 ![flow-chart](https://github.com/NarendraKumarSwami/truthful-toes-1489/blob/main/fastbiding/src/extra/flowchart.png)
 
 ### Er-Diagram
-![flow-chart](https://github.com/NarendraKumarSwami/truthful-toes-1489/blob/main/fastbiding/src/extra/flowchart.png)
+![flow-chart](https://github.com/NarendraKumarSwami/truthful-toes-1489/blob/main/fastbiding/src/extra/erdiagram.png)
